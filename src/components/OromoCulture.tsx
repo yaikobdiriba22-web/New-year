@@ -19,9 +19,10 @@ import { OdaaTreeIcon, AdeyAbebaIcon, CelebrationRibbon } from './EthiopianPatte
 
 interface OromoCultureProps {
   lang: Language;
+  hideHeader?: boolean;
 }
 
-export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
+export const OromoCulture: React.FC<OromoCultureProps> = ({ lang, hideHeader = false }) => {
   const t = translations[lang].oromoCulture;
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedPillar, setSelectedPillar] = useState<OromoPillar | null>(null);
@@ -43,55 +44,57 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
   const getPillarIcon = (iconName: string) => {
     switch (iconName) {
       case 'Landmark':
-        return <Landmark size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <Landmark size={18} className="text-amber-500 dark:text-amber-400" />;
       case 'Sparkles':
-        return <Sparkles size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <Sparkles size={18} className="text-amber-500 dark:text-amber-400" />;
       case 'Shield':
-        return <Shield size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <Shield size={18} className="text-amber-500 dark:text-amber-400" />;
       case 'Music':
-        return <Music size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <Music size={18} className="text-amber-500 dark:text-amber-400" />;
       case 'UtensilsCrossed':
-        return <UtensilsCrossed size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <UtensilsCrossed size={18} className="text-amber-500 dark:text-amber-400" />;
       case 'Crown':
-        return <Crown size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <Crown size={18} className="text-amber-500 dark:text-amber-400" />;
       default:
-        return <Sparkles size={20} className="text-amber-500 dark:text-amber-400" />;
+        return <Sparkles size={18} className="text-amber-500 dark:text-amber-400" />;
     }
   };
 
-  return (
-    <section id="oromo-culture" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+  const content = (
+    <>
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
-          <OdaaTreeIcon size={16} className="text-amber-600 dark:text-amber-400" />
-          <span>{t.badge}</span>
+      {!hideHeader && (
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
+            <OdaaTreeIcon size={16} className="text-amber-600 dark:text-amber-400" />
+            <span>{t.badge}</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-amber-100 font-serif tracking-tight mb-4">
+            {t.title}
+          </h2>
+          
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 font-light leading-relaxed">
+            {t.subtitle}
+          </p>
+
+          {/* Decorative Gadaa Tricolor Accent */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            <span className="w-12 h-[2px] bg-neutral-900 dark:bg-white/40" />
+            <span className="w-12 h-[2px] bg-red-600" />
+            <span className="w-12 h-[2px] bg-amber-400" />
+          </div>
         </div>
+      )}
 
-        <h2 className="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-amber-100 font-serif tracking-tight mb-4">
-          {t.title}
-        </h2>
-        
-        <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 font-light leading-relaxed">
-          {t.subtitle}
-        </p>
-
-        {/* Decorative Odaa / Gadaa Ribbon Accent */}
-        <div className="flex items-center justify-center gap-2 mt-6">
-          <span className="w-12 h-[2px] bg-neutral-900 dark:bg-white/40" />
-          <span className="w-12 h-[2px] bg-red-600" />
-          <span className="w-12 h-[2px] bg-amber-400" />
-        </div>
-      </div>
-
-      {/* Category Filter Pills */}
+      {/* Category Filter Pills - Touch-friendly and responsive */}
       <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
         {categories.map((cat) => (
           <button
             key={cat.id}
             type="button"
             onClick={() => setActiveCategory(cat.id)}
-            className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide uppercase transition-all duration-200 border ${
+            className={`min-h-[40px] px-4 py-2 rounded-full text-xs font-bold tracking-wide uppercase transition-all duration-200 border ${
               activeCategory === cat.id
                 ? 'bg-amber-500 border-amber-500 text-neutral-950 shadow-md scale-105'
                 : 'bg-neutral-100 dark:bg-emerald-950/40 border-neutral-200 dark:border-emerald-900/50 text-neutral-700 dark:text-neutral-300 hover:border-amber-400/60'
@@ -102,9 +105,12 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
         ))}
       </div>
 
-      {/* Pillars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {/* Bento Grid Layout matching Celebrating Ethiopia grid (gap-6, 4-column system) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredPillars.map((pillar) => {
+          const isFeatured = activeCategory === 'all' && (pillar.id === 'gadaa' || pillar.id === 'irreecha');
+          const isSingleFiltered = activeCategory !== 'all' && filteredPillars.length === 1;
+
           const title = lang === 'am' ? pillar.titleAm : lang === 'om' ? pillar.titleOm : pillar.titleEn;
           const subtitle = lang === 'am' ? pillar.subtitleAm : lang === 'om' ? pillar.subtitleOm : pillar.subtitleEn;
           const desc = lang === 'am' ? pillar.descAm : lang === 'om' ? pillar.descOm : pillar.descEn;
@@ -115,16 +121,24 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
           return (
             <div
               key={pillar.id}
-              className="group rounded-3xl overflow-hidden bg-white dark:bg-emerald-950/30 border border-neutral-200 dark:border-emerald-900/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className={`group rounded-3xl overflow-hidden bg-white dark:bg-emerald-950/30 border border-neutral-200 dark:border-emerald-900/40 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between ${
+                isSingleFiltered
+                  ? 'col-span-1 md:col-span-2 lg:col-span-2 md:col-start-1 lg:col-start-2'
+                  : isFeatured
+                  ? 'col-span-1 md:col-span-1 lg:col-span-2'
+                  : 'col-span-1'
+              }`}
             >
-              {/* Pillar Image with Badge Overlay */}
-              <div className="relative h-56 w-full overflow-hidden bg-neutral-900">
+              {/* Pillar Image with refined aspect ratio */}
+              <div className={`relative w-full overflow-hidden bg-neutral-900 ${
+                isFeatured || isSingleFiltered ? 'h-60 sm:h-64' : 'h-52 sm:h-60'
+              }`}>
                 <img
                   src={pillar.image}
                   alt={title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent" />
 
@@ -136,7 +150,7 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
 
                 {/* UNESCO Badge for Gadaa */}
                 {pillar.id === 'gadaa' && (
-                  <div className="absolute top-4 right-4 px-2.5 py-0.5 rounded-full bg-amber-500 text-neutral-950 text-[10px] font-black tracking-wider uppercase shadow-md">
+                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-amber-500 text-neutral-950 text-[10px] font-black tracking-wider uppercase shadow-md">
                     {t.gadaaBadge}
                   </div>
                 )}
@@ -146,21 +160,21 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
                   <span className="text-[11px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">
                     {subtitle}
                   </span>
-                  <h3 className="text-lg font-bold text-white font-serif leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-white font-serif leading-snug">
                     {title}
                   </h3>
                 </div>
               </div>
 
-              {/* Card Body */}
+              {/* Card Body with proper spacing math */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-300 font-light leading-relaxed mb-5 line-clamp-3">
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300 font-light leading-relaxed mb-4 line-clamp-3">
                     {desc}
                   </p>
 
                   {/* Highlights Bullet Previews */}
-                  <div className="space-y-2 mb-5">
+                  <div className="space-y-2 mb-4">
                     {highlights.slice(0, 2).map((h, hIdx) => (
                       <div key={hIdx} className="flex items-start gap-2 text-xs text-neutral-700 dark:text-neutral-300">
                         <CheckCircle2 size={14} className="text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
@@ -171,7 +185,7 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
 
                   {/* Proverb / Quote snippet */}
                   {quote && (
-                    <div className="p-3 rounded-2xl bg-amber-500/5 dark:bg-emerald-900/20 border border-amber-500/20 mb-5 flex items-start gap-2">
+                    <div className="p-3 rounded-2xl bg-amber-500/5 dark:bg-emerald-900/20 border border-amber-500/20 mb-4 flex items-start gap-2">
                       <Quote size={14} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5 rotate-180" />
                       <p className="text-xs italic text-neutral-700 dark:text-amber-100/90 font-serif line-clamp-2">
                         {quote}
@@ -180,15 +194,15 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
                   )}
                 </div>
 
-                {/* Action Button */}
+                {/* Action Button - Minimum 44px tap target for mobile touch */}
                 <button
                   type="button"
                   onClick={() => setSelectedPillar(pillar)}
-                  className="w-full mt-2 py-2.5 px-4 rounded-xl border border-amber-500/30 dark:border-emerald-800/60 bg-amber-500/10 hover:bg-amber-500 hover:text-neutral-950 text-amber-700 dark:text-amber-300 dark:hover:text-neutral-950 font-bold text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 group/btn"
+                  className="w-full min-h-[44px] py-2.5 px-4 rounded-xl border border-amber-500/30 dark:border-emerald-800/60 bg-amber-500/10 hover:bg-amber-500 hover:text-neutral-950 text-amber-700 dark:text-amber-300 dark:hover:text-neutral-950 font-bold text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 group/btn"
                 >
-                  <BookOpen size={14} />
+                  <BookOpen size={15} />
                   <span>{t.viewDetails}</span>
-                  <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
@@ -196,7 +210,7 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
         })}
       </div>
 
-      {/* Cultural Detail Modal */}
+      {/* Cultural Detail Modal - Fully responsive on mobile & desktop */}
       {selectedPillar && (
         <div
           role="dialog"
@@ -209,7 +223,7 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
             className="relative max-w-2xl w-full rounded-3xl overflow-hidden bg-white dark:bg-[#081710] text-neutral-900 dark:text-amber-50 shadow-2xl border border-neutral-200 dark:border-emerald-900/60 max-h-[90vh] flex flex-col"
           >
             {/* Modal Header Bar */}
-            <div className="relative h-64 w-full bg-neutral-900 shrink-0">
+            <div className="relative h-56 sm:h-64 w-full bg-neutral-900 shrink-0">
               <img
                 src={selectedPillar.image}
                 alt={selectedPillar.titleEn}
@@ -221,9 +235,9 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
                 type="button"
                 onClick={() => setSelectedPillar(null)}
                 aria-label={t.closeModal}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white transition-colors"
+                className="absolute top-4 right-4 z-20 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white transition-colors"
               >
-                <X size={18} />
+                <X size={20} />
               </button>
 
               <div className="absolute bottom-5 left-6 right-6 text-white">
@@ -302,7 +316,7 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
                 <button
                   type="button"
                   onClick={() => setSelectedPillar(null)}
-                  className="px-6 py-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-amber-500 dark:hover:bg-amber-400 dark:text-neutral-950 text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="min-h-[44px] px-6 py-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-amber-500 dark:hover:bg-amber-400 dark:text-neutral-950 text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   {t.closeModal}
                 </button>
@@ -311,6 +325,16 @@ export const OromoCulture: React.FC<OromoCultureProps> = ({ lang }) => {
           </div>
         </div>
       )}
+    </>
+  );
+
+  if (hideHeader) {
+    return <div id="oromo-culture" className="relative w-full">{content}</div>;
+  }
+
+  return (
+    <section id="oromo-culture" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      {content}
     </section>
   );
 };

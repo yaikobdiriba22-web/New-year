@@ -75,6 +75,10 @@ export const Footer: React.FC<FooterProps> = ({ lang, onOpenShare }) => {
             Gallery
           </a>
           <span>•</span>
+          <a href="#oromia" className="hover:text-amber-400 transition-colors">
+            Oromia
+          </a>
+          <span>•</span>
           <a href="#greetings" className="hover:text-amber-400 transition-colors">
             Wishes
           </a>

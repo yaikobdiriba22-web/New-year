@@ -11,6 +11,7 @@ export const translations = {
       culture: 'Culture',
       landscapes: 'Landscapes',
       gallery: 'Gallery',
+      oromiaHub: 'Oromia & Heritage',
       oromoCulture: 'Oromo Heritage',
       oromiaGallery: 'Oromia in Pictures',
       music: 'Music',
@@ -116,6 +117,13 @@ export const translations = {
       filterFood: 'Cuisine',
       filterHistoric: 'Historical',
     },
+    oromoSection: {
+      badge: 'SACRED GADAA & OROMIA',
+      title: 'Experience Oromia & Oromo Heritage',
+      subtitle: 'Immerse yourself in centuries-old democratic governance, the sacred thanksgiving of Irreecha, and a visual journey across the landscapes of Oromia.',
+      tabHeritage: 'Oromo Cultural Heritage',
+      tabPictures: 'Oromia in Pictures',
+    },
     oromoCulture: {
       badge: 'SACRED GADAA & HERITAGE',
       title: 'Experience Oromo Culture',
@@ -142,6 +150,8 @@ export const translations = {
       filterAttire: 'Traditional Wear',
       filterCulinary: 'Buna Qalaa & Cuisine',
       photoCount: 'Photographs',
+      viewGrid: 'Aligned Grid',
+      viewMasonry: 'Masonry Flow',
     },
     music: {
       badge: 'HARMONIC ROOTS',
@@ -208,6 +218,7 @@ export const translations = {
       culture: 'ባህላችን',
       landscapes: 'የሀገራችን ገጽታ',
       gallery: 'ፎቶዎች',
+      oromiaHub: 'የኦሮሞ ቅርስና ኦሮሚያ',
       oromoCulture: 'የኦሮሞ ባህል',
       oromiaGallery: 'ኦሮሚያ በምስል',
       music: 'የበዓል ዜማ',
@@ -313,6 +324,13 @@ export const translations = {
       filterFood: 'ምግብ',
       filterHistoric: 'ታሪካዊ',
     },
+    oromoSection: {
+      badge: 'የገዳ ሥርዓትና ኦሮሚያ',
+      title: 'የኦሮሞ ባህል፣ ቅርስና ኦሮሚያ በምስል',
+      subtitle: 'የጥንታዊው የገዳ ዴሞክራሲ፣ የኢሬቻ የምስጋና በዓል፣ ድንቅ ባህላዊ ቅርሶችና የኦሮሚያ ውብ የተፈጥሮ ገጽታዎች በአንድ ላይ።',
+      tabHeritage: 'የኦሮሞ ባህልና ቅርስ',
+      tabPictures: 'ኦሮሚያ በምስል',
+    },
     oromoCulture: {
       badge: 'የገዳ ሥርዓትና ቅርስ',
       title: 'የኦሮሞ ባህልን ይወቁ',
@@ -339,6 +357,8 @@ export const translations = {
       filterAttire: 'ባህላዊ አልባሳት',
       filterCulinary: 'ቡና ቃላና ማዕድ',
       photoCount: 'ፎቶዎች',
+      viewGrid: 'ተመሳሳይ ሰንጠረዥ',
+      viewMasonry: 'ሜሶነሪ ፍሰት',
     },
     music: {
       badge: 'ባህላዊ ዜማ',
@@ -405,6 +425,7 @@ export const translations = {
       culture: 'Aadaa Keenya',
       landscapes: 'Biyyoota Bareedoo',
       gallery: 'Suuraalee',
+      oromiaHub: 'Aadaa fi Oromiyaa',
       oromoCulture: 'Aadaa Oromoo',
       oromiaGallery: 'Oromiyaa Suuraan',
       music: 'Muuziqaa Ayyaanaa',
@@ -510,6 +531,13 @@ export const translations = {
       filterFood: 'Nyaata',
       filterHistoric: 'Seenaa',
     },
+    oromoSection: {
+      badge: 'DHAALA GADAA FI OROMIYAA',
+      title: 'Aadaa Oromoo fi Oromiyaa Daawwadhaa',
+      subtitle: 'Sirna dimokraasii Gadaa, ayyaana Irreechaa malkaa fi horaa, aadaa boonsaa fi bareedina Oromiyaa suuraan bakka tokkotti daawwadhaa.',
+      tabHeritage: 'Aadaa fi Seenaa Oromoo',
+      tabPictures: 'Oromiyaa Suuraan',
+    },
     oromoCulture: {
       badge: 'DHAALA SIRNA GADAA',
       title: 'Aadaa Oromoo Daawwadhaa',
@@ -536,6 +564,8 @@ export const translations = {
       filterAttire: 'Uffata Aadaa',
       filterCulinary: 'Nyaata fi Buna Qalaa',
       photoCount: 'Suuraalee',
+      viewGrid: 'Toleeffama Qajeelaa',
+      viewMasonry: 'Dhangala\'aa Mesonarii',
     },
     music: {
       badge: 'SAGALEE AADAA',

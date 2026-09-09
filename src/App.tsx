@@ -9,10 +9,9 @@ import { DateCard } from './components/DateCard';
 import { CulturalStory } from './components/CulturalStory';
 import { FlowerSection } from './components/FlowerSection';
 import { CultureBento } from './components/CultureBento';
-import { OromoCulture } from './components/OromoCulture';
 import { LandscapeSection } from './components/LandscapeSection';
 import { Gallery } from './components/Gallery';
-import { OromiaGallery } from './components/OromiaGallery';
+import { OromiaHub } from './components/OromiaHub';
 import { MusicPlayer } from './components/MusicPlayer';
 import { GreetingGenerator } from './components/GreetingGenerator';
 import { Footer } from './components/Footer';
@@ -159,10 +158,6 @@ export default function App() {
           lang={lang}
         />
 
-        <OromoCulture
-          lang={lang}
-        />
-
         <LandscapeSection
           lang={lang}
         />
@@ -171,7 +166,8 @@ export default function App() {
           lang={lang}
         />
 
-        <OromiaGallery
+        {/* Unified Oromia & Oromo Heritage Hub (Oromo Heritage and Oromia in Pictures under one button switcher) */}
+        <OromiaHub
           lang={lang}
         />
 
