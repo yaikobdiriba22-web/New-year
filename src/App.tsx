@@ -9,8 +9,10 @@ import { DateCard } from './components/DateCard';
 import { CulturalStory } from './components/CulturalStory';
 import { FlowerSection } from './components/FlowerSection';
 import { CultureBento } from './components/CultureBento';
+import { OromoCulture } from './components/OromoCulture';
 import { LandscapeSection } from './components/LandscapeSection';
 import { Gallery } from './components/Gallery';
+import { OromiaGallery } from './components/OromiaGallery';
 import { MusicPlayer } from './components/MusicPlayer';
 import { GreetingGenerator } from './components/GreetingGenerator';
 import { Footer } from './components/Footer';
@@ -157,11 +159,19 @@ export default function App() {
           lang={lang}
         />
 
+        <OromoCulture
+          lang={lang}
+        />
+
         <LandscapeSection
           lang={lang}
         />
 
         <Gallery
+          lang={lang}
+        />
+
+        <OromiaGallery
           lang={lang}
         />
 

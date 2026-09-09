@@ -44,8 +44,10 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: t.story, href: '#story' },
     { label: t.flowers, href: '#flowers' },
     { label: t.culture, href: '#culture' },
+    { label: t.oromoCulture, href: '#oromo-culture' },
     { label: t.landscapes, href: '#landscapes' },
     { label: t.gallery, href: '#gallery' },
+    { label: t.oromiaGallery, href: '#oromia-gallery' },
     { label: t.music, href: '#music' },
     { label: t.greetings, href: '#greetings' },
   ];

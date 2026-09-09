@@ -159,3 +159,41 @@ export const CelebrationRibbon: React.FC<{ className?: string }> = ({ className 
 };
 
 export const TricolorRibbon = CelebrationRibbon;
+
+// Sacred Odaa Sycamore Tree Emblem (Oromo Gadaa Heritage Symbol)
+export const OdaaTreeIcon: React.FC<{ className?: string; size?: number }> = ({
+  className = '',
+  size = 28,
+}) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      {/* Broad sprawling canopy representing democratic shelter and shade */}
+      <path
+        d="M32 8 C23 8 18 13 14 17 C9 22 8 28 12 33 C14 36 17 37 20 37 C21 40 23 42 27 43 L27 54 L22 58 L22 60 L42 60 L42 58 L37 54 L37 43 C41 42 43 40 44 37 C47 37 50 36 52 33 C56 28 55 22 50 17 C46 13 41 8 32 8 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      {/* Strong branch lines */}
+      <path
+        d="M32 54 L32 36 M32 38 L25 28 M32 38 L39 28 M32 32 L32 18"
+        stroke="#FEF3C7"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* Root base ground line */}
+      <path
+        d="M16 60 L48 60"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
